@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import HomeView from '@/views/HomeView'
+import MyDataView from '@/views/MyDataView'
+import FrontView from '@/views/FrontView'
+import SearchView from '@/views/SearchView'
+import UserProfileView from '@/views/users/UserProfileView'
+import { createDecipher } from 'crypto';
 
 Vue.use(Router)
 
@@ -10,16 +15,29 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'front',
+      component: FrontView,
+      title: 'Odash'
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/home',
+      name: 'home',
+      component: HomeView
+    },
+    {
+      path: '/my-data/',
+      name: 'my-data',
+      component: MyDataView
+    },
+    {
+      path: '/search/',
+      name: 'search',
+      component: SearchView
+    },
+    {
+      path: '/user/:username',
+      name: 'user-profile',
+      component: UserProfileView
     }
   ]
 })
