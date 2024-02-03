@@ -4,7 +4,7 @@ import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import { store } from './store'
-import VeeValidate from 'vee-validate'
+// import VeeValidate from 'vee-validate'
 import axios from 'axios'
 import { DJANGO_ENDPOINTS } from './config';
 
@@ -15,9 +15,9 @@ axios.defaults.baseURL = DJANGO_ENDPOINTS.BASE_URL
 Vue.prototype.$http = axios
 
 // VeeValidate config
-Vue.use(VeeValidate, {
-  events: ''
-})
+// Vue.use(VeeValidate, {
+//   events: ''
+// })
 
 // Event bus
 export const bus = new Vue()
